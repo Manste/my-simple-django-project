@@ -1,3 +1,5 @@
 .nodemodules
 mongo-init.js
 package-lock.json
+__pycahce__
+migrations

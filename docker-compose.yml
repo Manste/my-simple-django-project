@@ -11,6 +11,8 @@ services:
       MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE} 
     ports:
       - "27017:27017"
+    networks:
+      - app-network
 
   backend:
     #build: ./backend
@@ -25,6 +27,8 @@ services:
       FRONTEND_URL: ${FRONTEND_URL}
     depends_on:
       - mongodb
+    networks:
+      - app-network
 
   frontend:
     #build: ./frontend
@@ -35,3 +39,9 @@ services:
       REACT_APP_API_URL: ${REACT_APP_API_URL}
     depends_on:
       - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
