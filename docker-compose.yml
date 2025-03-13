@@ -19,7 +19,7 @@ services:
       - "8000:8000"
     environment:
       DATABASE_URL: ${DATABASE_URL}
-      ALLOWED_HOST: ${ALLOWED_HOST}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS}
       SECRET_KEY: ${SECRET_KEY}
       DEBUG: ${DEBUG}
       FRONTEND_URL: ${FRONTEND_URL}
