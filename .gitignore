@@ -1,5 +1,3 @@
-__pycache__
-migrations
 .nodemodules
 mongo-init.js
 package-lock.json
