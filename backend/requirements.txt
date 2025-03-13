@@ -1,0 +1,7 @@
+Django
+djongo
+pymongo
+djangorestframework
+requests
+django-environ
+django-mongodb-backend

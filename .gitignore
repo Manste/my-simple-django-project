@@ -1,0 +1,4 @@
+__pycache__
+migrations
+.nodemodules
+mongo-init.js
