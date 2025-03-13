@@ -1,0 +1,28 @@
+name: Build & Push Docker Images
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build and Push Backend
+        run: |
+          docker build -t secrets.DOCKER_USERNAME/backend ./backend
+          docker tag secrets.DOCKER_USERNAME/backend secrets.DOCKER_USERNAME/backend:latest
+          docker push secrets.DOCKER_USERNAME/backend:latest
+
+      - name: Build and Push Frontend
+        run: |
+          docker build -t secrets.DOCKER_USERNAME/frontend ./frontend
+          docker tag secrets.DOCKER_USERNAME/frontend secrets.DOCKER_USERNAME/frontend:latest
+          docker push secrets.DOCKER_USERNAME/frontend:latest
