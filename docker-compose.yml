@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mongodb:
     image: mongo
-    container_name: mongodb_secure
+    container_name: mongodb
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
@@ -13,7 +13,8 @@ services:
       - "27017:27017"
 
   backend:
-    build: ./backend
+    #build: ./backend
+    image: manste/backend  # to test the published image
     ports:
       - "8000:8000"
     environment:
@@ -26,7 +27,8 @@ services:
       - mongodb
 
   frontend:
-    build: ./frontend
+    #build: ./frontend
+    image: manste/frontend
     ports:
       - "3000:3000"
     environment:
