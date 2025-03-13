@@ -5,3 +5,4 @@ djangorestframework
 requests
 django-environ
 django-mongodb-backend
+django-cors-headers
